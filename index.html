@@ -48,7 +48,7 @@
         <div class="info-content">
           <h1 class="name" title="Joe Wu">Joe Wu</h1>
 
-          <p class="title">Mechanical Engineer & Developer</p>
+          <p class="title" id="typed-title"></p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
@@ -209,16 +209,20 @@
 
         <section class="about-text">
           <p>
-            I am a passionate fourth-year Mechanical Engineering student at the University of Ottawa, driven by a deep
-            love for engineering.
-            My expertise lies in designing and constructing mechanical systems to creatively address challenges.
-            Delve into my diverse range of projects, from electric cars and robots to precision machining.
+            I started in automotive, working on motor systems and electromechanical actuators — building a strong
+            foundation in real-world hardware, testing, and product development at Schaeffler.
           </p>
 
           <p>
-            For a closer look at my professional journey, check out my resume here, and explore my portfolio showcasing
-            my innovative endeavors.
-            Let's connect on LinkedIn or feel free to reach out to me directly.
+            I'm now focused on <strong style="color:var(--orange-yellow-crayola)">robotics actuation and system integration</strong>,
+            especially for dexterous manipulation and compact motor-driven mechanisms. My work spans BLDC/coreless motors,
+            throttle body systems, test platforms, and engineering automation.
+          </p>
+
+          <p>
+            I have growing interest in <strong style="color:var(--orange-yellow-crayola)">embodied AI and VLA
+            (vision-language-action) systems</strong> — building architectures where perception, decision, and actuation
+            are tightly integrated via Deep Learning, Reinforcement Learning, and large language models.
           </p>
         </section>
 
@@ -233,69 +237,147 @@
 
           <ul class="service-list">
 
+            <!-- CARD 1: Robotics Actuation — animated robot gripper -->
             <li class="service-item">
-
               <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
+                <svg class="svc-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Wrist -->
+                  <rect x="21" y="41" width="10" height="8" rx="3" fill="currentColor" opacity="0.55"/>
+                  <!-- Palm -->
+                  <rect x="14" y="27" width="24" height="14" rx="5" fill="currentColor" opacity="0.8"/>
+                  <!-- Knuckle dots -->
+                  <circle cx="20" cy="27" r="2.5" fill="currentColor" opacity="0.45"/>
+                  <circle cx="26" cy="27" r="2.5" fill="currentColor" opacity="0.45"/>
+                  <circle cx="32" cy="27" r="2.5" fill="currentColor" opacity="0.45"/>
+                  <!-- Finger 1 left -->
+                  <g class="gi-f1">
+                    <rect x="14" y="10" width="8" height="17" rx="4" fill="currentColor" opacity="0.85"/>
+                  </g>
+                  <!-- Finger 2 center (tallest) -->
+                  <g class="gi-f2">
+                    <rect x="22" y="7" width="8" height="20" rx="4" fill="currentColor" opacity="0.85"/>
+                  </g>
+                  <!-- Finger 3 right -->
+                  <g class="gi-f3">
+                    <rect x="30" y="10" width="8" height="17" rx="4" fill="currentColor" opacity="0.85"/>
+                  </g>
+                </svg>
               </div>
-
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Mechanical design</h4>
-
+                <h4 class="h4 service-item-title">Robotics Actuation</h4>
                 <p class="service-item-text">
-                  The most modern and high-quality design made at a professional level.
+                  Dexterous manipulation — finger, wrist &amp; hip-level mechanisms.<br>
+                  <span class="svc-tags">BLDC · Coreless Motors · Linear Actuators</span><br>
+                  DFM-driven prototyping via CNC machining &amp; 3D printing.
                 </p>
               </div>
-
             </li>
 
+            <!-- CARD 2: AI & LLM — animated neural network -->
             <li class="service-item">
-
               <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+                <svg class="svc-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Connections input→hidden -->
+                  <line x1="9" y1="10" x2="26" y2="20" stroke="currentColor" stroke-width="1"   opacity="0.3"/>
+                  <line x1="9" y1="26" x2="26" y2="20" stroke="currentColor" stroke-width="1"   opacity="0.3"/>
+                  <line x1="9" y1="42" x2="26" y2="20" stroke="currentColor" stroke-width="1"   opacity="0.3"/>
+                  <line x1="9" y1="10" x2="26" y2="32" stroke="currentColor" stroke-width="1"   opacity="0.3"/>
+                  <line x1="9" y1="26" x2="26" y2="32" stroke="currentColor" stroke-width="1"   opacity="0.3"/>
+                  <line x1="9" y1="42" x2="26" y2="32" stroke="currentColor" stroke-width="1"   opacity="0.3"/>
+                  <!-- Connections hidden→output -->
+                  <line x1="26" y1="20" x2="43" y2="26" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+                  <line x1="26" y1="32" x2="43" y2="26" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+                  <!-- Input nodes (pulse in sequence) -->
+                  <circle cx="9"  cy="10" r="5"   fill="currentColor" class="nn-n1"/>
+                  <circle cx="9"  cy="26" r="5"   fill="currentColor" class="nn-n2"/>
+                  <circle cx="9"  cy="42" r="5"   fill="currentColor" class="nn-n3"/>
+                  <!-- Hidden nodes -->
+                  <circle cx="26" cy="20" r="5.5" fill="currentColor" class="nn-h1"/>
+                  <circle cx="26" cy="32" r="5.5" fill="currentColor" class="nn-h2"/>
+                  <!-- Output node -->
+                  <circle cx="43" cy="26" r="7"   fill="currentColor" class="nn-out"/>
+                  <!-- Ripple ring -->
+                  <circle cx="43" cy="26" r="7"   fill="none" stroke="currentColor" stroke-width="2" class="nn-ring"/>
+                </svg>
               </div>
-
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web development</h4>
-
+                <h4 class="h4 service-item-title">AI &amp; LLM Engineering</h4>
                 <p class="service-item-text">
-                  High-quality development of sites at the professional level.
+                  End-to-end intelligent systems — from perception to action.<br>
+                  <span class="svc-tags">Deep Learning · RL · ViT · CNN · LLM Agents</span><br>
+                  VLA architectures &amp; LLM automation pipelines for engineering data.
                 </p>
               </div>
-
             </li>
 
+            <!-- CARD 3: Product Development — spinning gear -->
             <li class="service-item">
-
               <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
+                <svg class="svc-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g class="gear-spin">
+                    <!-- 8 teeth -->
+                    <rect x="23" y="2"  width="6" height="11" rx="2" fill="currentColor"/>
+                    <rect x="23" y="2"  width="6" height="11" rx="2" fill="currentColor" transform="rotate(45  26 26)"/>
+                    <rect x="23" y="2"  width="6" height="11" rx="2" fill="currentColor" transform="rotate(90  26 26)"/>
+                    <rect x="23" y="2"  width="6" height="11" rx="2" fill="currentColor" transform="rotate(135 26 26)"/>
+                    <rect x="23" y="2"  width="6" height="11" rx="2" fill="currentColor" transform="rotate(180 26 26)"/>
+                    <rect x="23" y="2"  width="6" height="11" rx="2" fill="currentColor" transform="rotate(225 26 26)"/>
+                    <rect x="23" y="2"  width="6" height="11" rx="2" fill="currentColor" transform="rotate(270 26 26)"/>
+                    <rect x="23" y="2"  width="6" height="11" rx="2" fill="currentColor" transform="rotate(315 26 26)"/>
+                    <!-- Gear body -->
+                    <circle cx="26" cy="26" r="14" fill="currentColor" opacity="0.75"/>
+                    <!-- Center bore -->
+                    <circle cx="26" cy="26" r="6.5" fill="hsl(240,2%,12%)"/>
+                    <!-- Inner ring -->
+                    <circle cx="26" cy="26" r="4"   fill="none" stroke="currentColor" stroke-width="1.5"/>
+                    <!-- Center pin -->
+                    <circle cx="26" cy="26" r="2"   fill="currentColor"/>
+                  </g>
+                </svg>
               </div>
-
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Mobile apps</h4>
-
+                <h4 class="h4 service-item-title">Product Development</h4>
                 <p class="service-item-text">
-                  Professional development of applications for iOS and Android.
+                  EGR throttle bodies &amp; actuator validation — concept to prototype.<br>
+                  <span class="svc-tags">DVP&amp;R · DFMEA · BOM · CT Scan Analysis</span><br>
+                  Cross-functional coordination — ME / EE / SW teams.
                 </p>
               </div>
-
             </li>
 
+            <!-- CARD 4: Data & Test — oscilloscope waveform -->
             <li class="service-item">
-
               <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
+                <svg class="svc-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Screen border -->
+                  <rect x="3" y="8" width="46" height="34" rx="4" stroke="currentColor" stroke-width="1.5" opacity="0.45"/>
+                  <rect x="4" y="9" width="44" height="32" rx="3" fill="currentColor" fill-opacity="0.04"/>
+                  <!-- Grid: horizontal -->
+                  <line x1="3"  y1="17" x2="49" y2="17" stroke="currentColor" stroke-width="0.5" opacity="0.12"/>
+                  <line x1="3"  y1="25" x2="49" y2="25" stroke="currentColor" stroke-width="0.5" opacity="0.2"/>
+                  <line x1="3"  y1="33" x2="49" y2="33" stroke="currentColor" stroke-width="0.5" opacity="0.12"/>
+                  <!-- Grid: vertical -->
+                  <line x1="14" y1="8"  x2="14" y2="42" stroke="currentColor" stroke-width="0.5" opacity="0.12"/>
+                  <line x1="26" y1="8"  x2="26" y2="42" stroke="currentColor" stroke-width="0.5" opacity="0.12"/>
+                  <line x1="38" y1="8"  x2="38" y2="42" stroke="currentColor" stroke-width="0.5" opacity="0.12"/>
+                  <!-- Animated sine wave -->
+                  <path class="wave-path" pathLength="100"
+                    d="M4 25 Q9 13 15 25 Q21 37 27 25 Q33 13 39 25 Q45 37 49 25"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                  <!-- Bottom bar / HUD -->
+                  <rect x="3" y="44" width="46" height="5" rx="2" fill="currentColor" fill-opacity="0.12"/>
+                  <text x="6"  y="48.5" font-size="4.5" fill="currentColor" opacity="0.65" font-family="monospace" font-weight="bold">CH1</text>
+                  <text x="30" y="48.5" font-size="4"   fill="currentColor" opacity="0.45" font-family="monospace">1ms/div</text>
+                </svg>
               </div>
-
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Automotive</h4>
-
+                <h4 class="h4 service-item-title">Data &amp; Test Automation</h4>
                 <p class="service-item-text">
-                  I'm an automotive enthusiast, a detail-oriented product designer.
+                  Motor characterization — cogging torque, back-EMF &amp; inductance.<br>
+                  <span class="svc-tags">Python · TDMS · ROS2 · SLAM · Signal Processing</span><br>
+                  KPI dashboards cutting manual analysis time by &gt;80%.
                 </p>
               </div>
-
             </li>
 
           </ul>
@@ -582,13 +664,39 @@
 
             <li class="timeline-item">
 
+              <h4 class="h4 timeline-item-title" style="text-align:left;">Product Development Engineer</h4>
+              <h4 class="h4 timeline-item-title">Schaeffler &nbsp;·&nbsp; Co-op</h4>
+
+              <span>Sep 2025 — Present · Chatham, ON</span>
+
+              <p class="timeline-text">
+                • <b>Robotics Actuation</b>: Developed engineering BOMs for advanced actuation systems (finger/wrist/hip-level
+                mechanisms); prototyped BLDC, coreless motors &amp; linear actuators using CNC + 3D printing (DFM-driven).</p><br>
+              <p class="timeline-text">
+                • <b>Throttle Bodies</b>: Developed CAD designs for EGR throttle bodies and PBW systems;
+                performed 3D reconstruction from CT scans for competitive analysis.</p><br>
+              <p class="timeline-text">
+                • <b>AI Agents &amp; LLM Automation</b>: Designed AI agent workflows to automate acquisition tasks
+                (SOR/SOW extraction, compliance mapping); built PDF → structured JSON pipelines for scalable LLM processing;
+                exploring multi-agent systems for engineering automation.</p><br>
+              <p class="timeline-text">
+                • <b>Motor Test System</b>: Built a €40K+ equivalent motor test rig from reclaimed components, enabling
+                cogging torque, back-EMF, inductance, acoustic &amp; performance testing across BLDC/stepper/coreless platforms.</p><br>
+              <p class="timeline-text">
+                • <b>Data Automation (Python)</b>: Developed automated TDMS pipeline + dashboard (filtering, KPI extraction,
+                visualization), reducing manual analysis time by &gt;80%.</p><br>
+
+            </li>
+
+            <li class="timeline-item">
+
               <h4 class="h4 timeline-item-title" style="text-align:left;">Engineering CO-OP Student
               </h4>
               <h4 class="h4 timeline-item-title">
                   Children Hospital of Eastern Ontario
               </h4>
 
-              <span>2023.02 — Present</span>
+              <span>2023.02 — 2025.04</span>
 
               <p class="timeline-text">
                 • <b>AutoCAD</b>: Use AutoCAD to efficiently restore the hospital's facilities to architectural drawing

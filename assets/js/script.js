@@ -177,5 +177,105 @@ for (let i = 0; i < navigationLinks.length; i++) {
       }
     }
 
+    // Re-trigger scroll reveal for new page
+    revealVisible();
+
   });
 }
+
+
+
+// ---- TYPEWRITER EFFECT ----
+
+const typedTitles = [
+  'Robotics Actuation Engineer',
+  'Product Development Engineer',
+  'Deep Learning | RL | VLA',
+  'Automotive Powertrain',
+  'BLDC Motor Systems'
+];
+
+const titleEl = document.getElementById('typed-title');
+let titleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+// Create cursor element
+const cursor = document.createElement('span');
+cursor.className = 'typed-cursor';
+titleEl.insertAdjacentElement('afterend', cursor);
+
+function typeTitle() {
+  const current = typedTitles[titleIndex];
+
+  if (isDeleting) {
+    titleEl.textContent = current.substring(0, charIndex - 1);
+    charIndex--;
+  } else {
+    titleEl.textContent = current.substring(0, charIndex + 1);
+    charIndex++;
+  }
+
+  if (!isDeleting && charIndex === current.length) {
+    setTimeout(function () { isDeleting = true; typeTitle(); }, 2200);
+    return;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    titleIndex = (titleIndex + 1) % typedTitles.length;
+  }
+
+  const speed = isDeleting ? 45 : 85;
+  setTimeout(typeTitle, speed);
+}
+
+typeTitle();
+
+
+
+// ---- SCROLL REVEAL ----
+
+function revealVisible() {
+  const revealItems = document.querySelectorAll('[data-reveal]');
+  revealItems.forEach(function (el, i) {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 60) {
+      setTimeout(function () { el.classList.add('visible'); }, i * 80);
+    }
+  });
+}
+
+// Attach data-reveal to animatable items
+const revealTargets = document.querySelectorAll(
+  '.service-item, .timeline-item, .skills-item, .project-item, .blog-post-item, .clients-item, .testimonials-item'
+);
+revealTargets.forEach(function (el) {
+  el.setAttribute('data-reveal', '');
+});
+
+window.addEventListener('scroll', revealVisible);
+revealVisible(); // run once on load
+
+
+
+// ---- SKILL BAR ANIMATION ----
+
+const skillFills = document.querySelectorAll('.skill-progress-fill');
+skillFills.forEach(function (fill) {
+  const targetWidth = fill.style.width || '0%';
+  fill.dataset.targetWidth = targetWidth;
+  fill.style.width = '0';
+});
+
+const skillObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      const fill = entry.target;
+      setTimeout(function () {
+        fill.style.width = fill.dataset.targetWidth;
+      }, 300);
+      skillObserver.unobserve(fill);
+    }
+  });
+}, { threshold: 0.4 });
+
+skillFills.forEach(function (fill) { skillObserver.observe(fill); });
